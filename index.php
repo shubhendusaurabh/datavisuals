@@ -1,5 +1,22 @@
 <?php
 
+
+	date_default_timezone_set('Asia/Kolkata');
+	
+	if (is_dir(dirname(__FILE__)))
+	{
+		define('DIRPATH', dirname(__FILE__).DIRECTORY_SEPARATOR);
+	}
+	
+	switch (dirname(__FILE__)) {
+		case 'C:\wamp\www\datavisuals':
+			define('ENVIRONMENT', 'development');
+			break;
+		
+		default:
+			define('ENVIRONMENT', 'production');
+			break;
+	}
 /*
  *---------------------------------------------------------------
  * APPLICATION ENVIRONMENT
@@ -18,7 +35,6 @@
  * NOTE: If you change these, also change the error_reporting() code below
  *
  */
-	define('ENVIRONMENT', 'development');
 /*
  *---------------------------------------------------------------
  * ERROR REPORTING
@@ -33,7 +49,7 @@ if (defined('ENVIRONMENT'))
 	switch (ENVIRONMENT)
 	{
 		case 'development':
-			error_reporting(E_ALL);
+			error_reporting(E_ALL | E_STRICT);
 		break;
 	
 		case 'testing':

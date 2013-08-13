@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteBase /datavisuals
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /datavisuals/index.php?/$1 [L]

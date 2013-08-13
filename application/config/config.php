@@ -1,5 +1,13 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
+function __autoload($classname){
+	if (strpos($classname, 'CI_') !== 0) {
+		$file = APPPATH.'libraries/'.$classname.'.php';
+		
+		if (file_exists($file) && is_file($file)) {
+			@include_once($file);
+		}
+	}
+}
 /*
 |--------------------------------------------------------------------------
 | Base Site URL
@@ -26,7 +34,7 @@ $config['base_url']	= '';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -180,7 +188,7 @@ $config['directory_trigger']	= 'd'; // experimental not currently in use
 | your log files will fill up very fast.
 |
 */
-$config['log_threshold'] = 0;
+$config['log_threshold'] = 1;
 
 /*
 |--------------------------------------------------------------------------
@@ -224,7 +232,7 @@ $config['cache_path'] = '';
 | MUST set an encryption key.  See the user guide for info.
 |
 */
-$config['encryption_key'] = '';
+$config['encryption_key'] = 'dew58#$td5d3%4sds587342f25$#$42s3#';
 
 /*
 |--------------------------------------------------------------------------
@@ -244,11 +252,11 @@ $config['encryption_key'] = '';
 | 'sess_time_to_update'		= how many seconds between CI refreshing Session Information
 |
 */
-$config['sess_cookie_name']		= 'ci_session';
+$config['sess_cookie_name']		= 'cisession';
 $config['sess_expiration']		= 7200;
-$config['sess_expire_on_close']	= FALSE;
-$config['sess_encrypt_cookie']	= FALSE;
-$config['sess_use_database']	= FALSE;
+$config['sess_expire_on_close']	= TRUE;
+$config['sess_encrypt_cookie']	= TRUE;
+$config['sess_use_database']	= TRUE;
 $config['sess_table_name']		= 'ci_sessions';
 $config['sess_match_ip']		= FALSE;
 $config['sess_match_useragent']	= TRUE;
@@ -341,7 +349,7 @@ $config['time_reference'] = 'local';
 | in your view files.  Options are TRUE or FALSE (boolean)
 |
 */
-$config['rewrite_short_tags'] = FALSE;
+$config['rewrite_short_tags'] = TRUE;
 
 
 /*
