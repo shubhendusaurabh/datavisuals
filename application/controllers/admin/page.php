@@ -77,6 +77,7 @@
 
 		public function _unique_slug($str)
 		{
+			$page = null;
 			$id = $this->uri->segment(4);
 			$slug = $this->input->post('slug');
 			if( ! $id ){

@@ -1,10 +1,5 @@
 <?php
 
-function add_meta_title($string) {
-	$CI = &get_instance();
-	$CI -> data['meta_title'] = e($string) . ' - ' . $CI -> data['meta_title'];
-}
-
 function btn_edit($uri) {
 	return anchor($uri, '<i class="icon-edit"></i>');
 }
@@ -17,17 +12,17 @@ function e($string) {
 	return htmlentities($string);
 }
 
-function article_link($article) {
-	return 'article/' . intval($article -> id) . '/' . e($article -> slug);
+function visual_link($visual) {
+	return 'visual/' . intval($visual -> id) . '/' . e($visual -> slug);
 }
 
-function article_links($articles) {
+function visual_links($visuals) {
 	$string = '<ul>';
-	foreach ($articles as $article) {
-		$url = article_link($article);
+	foreach ($visuals as $visual) {
+		$url = visual_link($visual);
 		$string .= '<li>';
-		$string .= "<h3>" . anchor($url, $article -> title) . " &raquo; </h3>";
-		$string .= '<p class="pubdate">' . e($article -> pubdate) . '</p>';
+		$string .= "<h3>" . anchor($url, $visual -> title) . " &raquo; </h3>";
+		$string .= '<p class="pubdate">' . e($visual -> pubdate) . '</p>';
 		$string .= '</li>';
 
 	}
@@ -35,13 +30,13 @@ function article_links($articles) {
 	return $string;
 }
 
-function get_excerpt($article, $numwords = 50) {
+function get_excerpt($visual, $numwords = 50) {
 	$string = '';
-	$url = 'article/' . intval($article -> id) . '/' . e($article -> slug);
-	$string .= '<h2>' . anchor($url, e($article -> title)) . '</h2>';
-	$string .= '<p class="pubdate">' . e($article -> pubdate) . '</p>';
-	$string .= '<p>' . e(limit_to_numwords(strip_tags($article -> body), $numwords)) . '</p>';
-	$string .= '<p>' . anchor($url, 'Read More >', array('title' => e($article -> title))) . '</p>';
+	$url = 'visual/' . intval($visual -> id) . '/' . e($visual -> slug);
+	$string .= '<h2>' . anchor($url, e($visual -> title)) . '</h2>'.PHP_EOL;
+	$string .= '<p class="pubdate">' . e($visual -> pubdate) . '</p>'.PHP_EOL;
+	$string .= '<p>' . e(limit_to_numwords(strip_tags($visual -> body), $numwords)) . '</p>'.PHP_EOL;
+	$string .= '<p>' . anchor($url, 'Read More >', array('title' => e($visual -> title))) . '</p>'.PHP_EOL;
 	return $string;
 }
 
@@ -87,24 +82,6 @@ function get_menu($array, $child = false) {
 	return $str;
 }
 
-function image_link($image) {
-	return 'image/' . intval($image -> id) . '/' . e($image -> slug);
-}
-
-function image_links($images){
-	$string = '<ul>';
-	foreach ($images as $image) {
-		$url = image_link($image);
-		$string .= '<li>';
-		$string .= "<h3>" . anchor( $url, $image->title) . " &raquo; </h3>";
-		$string .= '<p class="pubdate">' . e($image->pubdate) . '</p>';
-		$string .= '</li>';
-
-	}
-	$string .= '</ul>';
-	return $string;
-}
-
 function get_ol($array, $child = false){
 
 	$str = '';
@@ -125,6 +102,31 @@ function get_ol($array, $child = false){
 		}
 
 		$str .= '</ol>' . PHP_EOL;
+	}
+
+	return $str;
+}
+
+function admin_menu($array){
+	
+	$CI = &get_instance();
+	
+	$str = '';
+
+	if (count($array)) {
+		$str .= '<ul class="nav">';
+
+		foreach ($array as $key => $value) {
+
+			$active = $CI -> uri -> segment(2) == $key ? true : false;
+			$str .= $active ? '<li class="active">' : '<li>' . PHP_EOL;
+			$str .= '<a href="' . site_url('admin/'.$key) . '"> ' . $value . '</a>';
+		
+
+			$str .= '</li>' . PHP_EOL;
+		}
+
+		$str .= '</ul>' . PHP_EOL;
 	}
 
 	return $str;

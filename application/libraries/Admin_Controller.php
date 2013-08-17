@@ -4,11 +4,19 @@
      */
     class Admin_Controller extends MY_Controller {
         
+		public $menu = array(
+			'page' => 'Pages',
+			'user' => 'Users',
+			'page/order' => 'Order Pages',
+			'visual' => 'Visuals',
+		);
+		
         function __construct() {
             parent::__construct();
-			$this->data['title'] = config_item('site_name');			
+			$this->data['title'] = config_item('site_name');
+			$this->data['menu'] = admin_menu($this->menu);			
 			$this->load->model('user_model');
-
+			$this->data['header'] = 'Admin - ' . ucwords(get_class($this));
             $exception_urls = array('admin/user/login', 'admin/user/logout' );
             if (in_array(uri_string(), $exception_urls) == false) {
                 # code...

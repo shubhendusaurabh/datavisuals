@@ -8,6 +8,8 @@ function __autoload($classname){
 		}
 	}
 }
+
+$config['site_name'] = 'pumpndump.in/data';
 /*
 |--------------------------------------------------------------------------
 | Base Site URL

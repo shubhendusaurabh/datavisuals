@@ -1,11 +1,13 @@
 <div class="row">
 	<!-- Main Content -->
 	<div class="span9">
-		<article>
-			<h2><?php echo e($page->title) ?></h2>
-			
-			<?php echo $page->body ?>
-		</article>
+		
+			<article>
+				<h2><?php echo e($visual->title); ?></h2>
+				<p class="pubdate"><?php echo e($visual->pubdate); ?></p>
+				<?php echo $visual->body;?>
+			</article>
+			<hr />
 	</div>
 	<!-- Sidebar -->
 	<div class="span3 sidebar">
