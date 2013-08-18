@@ -29,7 +29,7 @@
 
 			$this->form_validation->set_rules($rules);
 			if ($this->form_validation->run() == TRUE) {
-				$data = $this->visual->array_from_post(array('title', 'slug', 'body', 'pubdate'));
+				$data = $this->visual->array_from_post(array('title', 'slug', 'body', 'pubdate', 'filename'));
 				if ( $id ) {
 					$data['modified'] = date('Y-m-d H:i:s');
 					$this->visual->update($id, $data);

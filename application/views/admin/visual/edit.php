@@ -17,6 +17,10 @@
 		<td><?php echo form_input('slug', set_value('slug', $visual->slug)); ?></td>
 	</tr>
 	<tr>
+		<td>Filename:</td>
+		<td><?php echo form_input('filename', set_value('filename', $visual->filename)); ?></td>
+	</tr>
+	<tr>
 		<td>Body:</td>
 		<td><?php echo form_textarea('body', set_value('body', $visual->body), 'class="tinymce"'); ?></td>
 	</tr>
@@ -26,8 +30,6 @@
 	</tr>
 </table>
 <?php echo form_close(); ?>
-<script src="<?= site_url('assests/js/jquery-2.0.0.min.js') ?>"></script>
-<script src="<?= site_url('assests/js/bootstrap.js') ?>"></script>
 <script src="<?= site_url('assests/js/bootstrap-datepicker.js') ?>"></script>
 <script>
 	$(function(){

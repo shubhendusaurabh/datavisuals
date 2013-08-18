@@ -5,8 +5,13 @@
 	<title><?= $title ?></title>
 	<link rel="stylesheet" href="<?= base_url('assests/css/bootstrap.min.css') ?>" />
 	<link rel="stylesheet" href="<?= base_url('assests/css/styles.css') ?>" />
+	<link rel="stylesheet" href="<?= base_url('assests/css/rickshaw.min.css'); ?>" />
 	<script src="<?= base_url('assests/js/jquery-2.0.0.min.js'); ?>"></script>
+	<script src="<?= base_url('assests/js/jquery-ui-1.9.1.custom.min.js'); ?>"></script>
 	<script src="<?= base_url('assests/js/bootstrap.min.js'); ?>"></script>
+	<script src="<?= base_url('assests/js/d3.min.js'); ?>"></script>
+	<script src="<?= base_url('assests/js/d3.layout.min.js'); ?>"></script>
+	<script src="<?= base_url('assests/js/rickshaw.min.js'); ?>"></script>
 </head>
 <body>
 	<div class="container">
@@ -21,7 +26,7 @@
 	  		</div>
 	  	</div>
   	</div>
-	<div class="container">
+	<div class="container-fluid">
 		<header>
 			<h1><?= $header ?></h1>
 		</header>

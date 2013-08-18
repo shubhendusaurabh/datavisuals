@@ -23,6 +23,11 @@ class Visual_model extends MY_Model {
 			'label'		=> 'Slug',
 			'rules' 	=> 'required|trim|max_length[100]|xss_clean'
 		),
+		'filename' => array(
+			'field' 	=> 'filename',
+			'label'		=> 'Filename',
+			'rules' 	=> 'required|trim|xss_clean'
+		),
 		'body' => array(
 			'field' 	=> 'body',
 			'label'		=> 'Body',
@@ -41,6 +46,7 @@ class Visual_model extends MY_Model {
 		$visual = new stdClass();
 		$visual->title = '';
 		$visual->slug = '';
+		$visual->filename = '';
 		$visual->body = '';
 		$visual->pubdate = date('Y-m-d');
 		return $visual;
