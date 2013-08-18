@@ -19,7 +19,7 @@ class Visual extends Frontend_Controller
 		$this->data['visual'] = $this->visual->get($id);
 		
 		count($this->data['visual']) || show_404(uri_string());
-
+		$this->data['title'] = 'Data Visualization - ' . $this->data['visual']->title;
 		$requested_slug = $this->uri->segment(3);
 		$set_slug = $this->data['visual']->slug;
 		
