@@ -2,6 +2,7 @@
 
 	class Page extends Admin_Controller{
 		
+		protected $_table = 'pages';
 		
 		public function __construct(){
 			parent::__construct();

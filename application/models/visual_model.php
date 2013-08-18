@@ -60,6 +60,7 @@ class Visual_model extends MY_Model {
 	public function get_recent($limit = 3){
 		$limit = (int)$limit;
 		$this->set_published();
+		$this->db->order_by('pubdate', 'desc');
 		$this->db->limit($limit);
 		return parent::get_all();
 	}

@@ -17,6 +17,7 @@
 			$this->data['menu'] = admin_menu($this->menu);			
 			$this->load->model('user_model');
 			$this->data['header'] = 'Admin - ' . ucwords(get_class($this));
+			$this->data['public'] = FALSE;
             $exception_urls = array('admin/user/login', 'admin/user/logout' );
             if (in_array(uri_string(), $exception_urls) == false) {
                 # code...

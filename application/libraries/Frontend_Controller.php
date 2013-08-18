@@ -13,7 +13,7 @@
 			$this->data['header'] = ucwords(get_class($this));
             $this->data['news_archive_link'] = $this->page_model->get_archive_link();
             $this->data['meta_title'] = config_item('site_name');
-             	
+            $this->data['public'] = TRUE;
         }
 
         public function index(){

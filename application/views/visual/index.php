@@ -6,7 +6,7 @@
 				<h2><?php echo e($visual->title); ?></h2>
 				<p class="pubdate"><?php echo e($visual->pubdate); ?></p>
 				<?php $this->load->view("charts/{$visual->filename}"); ?>
-				<?php echo $visual->body;?>
+				
 			</article>
 			<hr />
 	</div>

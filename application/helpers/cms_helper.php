@@ -35,7 +35,7 @@ function get_excerpt($visual, $numwords = 50) {
 	$url = 'visual/' . intval($visual -> id) . '/' . e($visual -> slug);
 	$string .= '<h2>' . anchor($url, e($visual -> title)) . '</h2>'.PHP_EOL;
 	$string .= '<p class="pubdate">' . e($visual -> pubdate) . '</p>'.PHP_EOL;
-	$string .= '<p>' . e(limit_to_numwords(strip_tags($visual -> body), $numwords)) . '</p>'.PHP_EOL;
+	$string .= '<p>' . limit_to_numwords(strip_tags($visual -> body), $numwords) . '</p>'.PHP_EOL;
 	$string .= '<p>' . anchor($url, 'Read More >', array('title' => e($visual -> title))) . '</p>'.PHP_EOL;
 	return $string;
 }

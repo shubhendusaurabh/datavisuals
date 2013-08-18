@@ -60,7 +60,7 @@ class Page_model extends MY_Model {
 	{
 		parent::delete($id);
 
-		$this->db->set(array('parent_id' => 0))->where('parent_id', $id)->update($this->_table_name);
+		$this->db->set(array('parent_id' => 0))->where('parent_id', $id)->update($this->_table);
 	}
 
 	public function get_no_parents()

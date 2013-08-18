@@ -24,6 +24,10 @@ p.pubdate {
 	font-size: 0.9em;
 }
 
+footer {
+	text-align: center;
+}
+
 .sidebar h3 {
 	font-size: 1em;
 	line-height: 1.2em;

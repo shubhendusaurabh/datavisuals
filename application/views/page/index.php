@@ -9,7 +9,7 @@
 	</div>
 	<!-- Sidebar -->
 	<div class="span3 sidebar">
-		<h2>Recent News</h2>
+		<h2>Recent Visuals</h2>
 		<?php $this->load->view('sidebar'); ?>
 	</div>
 </div>

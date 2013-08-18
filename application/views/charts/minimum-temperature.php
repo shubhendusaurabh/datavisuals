@@ -22,10 +22,12 @@ foreach ($season as $key => $value) {
 		$lol[] = $temp;
 
 	}
+	
 	$data['data'] = $lol;
 	$data['name'] = $value;
 	$data['color'] = $color[$key];
 	$s[] = $data;
+	
 }
 ?>
 		<div id="chart_container">
@@ -34,15 +36,24 @@ foreach ($season as $key => $value) {
 
 		</div>
 		<br />
-		<div id="legend_container">
-			<div id="smoother" title="Smoothing"></div>
-			<div id="legend"></div>
+		<div class="row">
+			<div class="span7 offset1">
+				<?php echo $visual->body;?>
+			</div>
+			<div class="span3 offset1">
+				<div id="legend_container">
+					<div id="smoother" title="Smoothing"></div>
+					<div id="legend"></div>
+				</div>
+			</div>
 		</div>
+		
+		
 		<script>
 	
 			var graph = new Rickshaw.Graph({
 				element : document.getElementById("chart"),
-				width : 950,
+				width : 900,
 				height : 350,
 				renderer : 'line',
 				series : <?php echo json_encode($s); ?>

@@ -17,7 +17,7 @@ class Visual extends Frontend_Controller
 	public function index($id, $slug){
 		$this->db->where('pubdate <=', date('Y-m-d'));
 		$this->data['visual'] = $this->visual->get($id);
-		//var_dump($this->data['visual']);
+		
 		count($this->data['visual']) || show_404(uri_string());
 
 		$requested_slug = $this->uri->segment(3);

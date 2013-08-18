@@ -29,7 +29,7 @@
 			<?= $yield ?>	
 		
 		<footer>
-			<p>&copy; <?= date('Y'); ?></p>
+			<p>&copy; <?= date('Y'); ?> <a href="http://pumpndump.in">pumpndump.in</a></p>
 		</footer>
 	</div>
 </body>
