@@ -24,7 +24,11 @@ $config['site_name'] = 'pumpndump.in/data';
 | path to your installation.
 |
 */
-$config['base_url']	= '';
+if (ENVIRONMENT == 'development'){
+	$config['base_url']	= '';
+} else {
+	$config['base_url']	= 'http://pumpndump.in/data/';
+}
 
 /*
 |--------------------------------------------------------------------------
