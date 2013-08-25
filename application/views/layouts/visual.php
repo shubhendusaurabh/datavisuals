@@ -5,13 +5,16 @@
 	<title><?= $title ?></title>
 	<link rel="stylesheet" href="<?= base_url('assests/css/bootstrap.min.css') ?>" />
 	<link rel="stylesheet" href="<?= base_url('assests/css/styles.css') ?>" />
-	<link rel="stylesheet" href="<?= base_url('assests/css/rickshaw.min.css'); ?>" />
+<?php if ($css): ?>
+	<link rel="stylesheet" href="<?= base_url('assests/css/' . $css); ?>" />
+<?php endif ?>	
 	<script src="<?= base_url('assests/js/jquery-2.0.0.min.js'); ?>"></script>
-	<script src="<?= base_url('assests/js/jquery-ui-1.9.1.custom.min.js'); ?>"></script>
 	<script src="<?= base_url('assests/js/bootstrap.min.js'); ?>"></script>
-	<script src="<?= base_url('assests/js/d3.min.js'); ?>"></script>
-	<script src="<?= base_url('assests/js/d3.layout.min.js'); ?>"></script>
-	<script src="<?= base_url('assests/js/rickshaw.min.js'); ?>"></script>
+<?php if ($js): ?>
+	<?php foreach($js as $j): ?>
+		<script src="<?= base_url('assests/js/' . $j); ?>"></script>
+	<?php endforeach ?>
+<?php endif ?>
 </head>
 <body>
 	<div class="container">

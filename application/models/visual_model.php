@@ -28,6 +28,11 @@ class Visual_model extends MY_Model {
 			'label'		=> 'Filename',
 			'rules' 	=> 'required|trim|xss_clean'
 		),
+		'library' => array(
+			'field' 	=> 'library',
+			'label'		=> 'Library',
+			'rules' 	=> 'required|trim|xss_clean'
+		),
 		'body' => array(
 			'field' 	=> 'body',
 			'label'		=> 'Body',
@@ -47,6 +52,7 @@ class Visual_model extends MY_Model {
 		$visual->title = '';
 		$visual->slug = '';
 		$visual->filename = '';
+		$visual->library = '';
 		$visual->body = '';
 		$visual->pubdate = date('Y-m-d');
 		return $visual;

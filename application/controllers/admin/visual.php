@@ -6,6 +6,8 @@
 		public function __construct(){
 			parent::__construct();
 			$this->data['title'] = 'Create or Edit Articles';
+			$this->data['css'] = array();
+			$this->data['js'] = array();
 		}
 
 		public function index()
@@ -29,7 +31,7 @@
 
 			$this->form_validation->set_rules($rules);
 			if ($this->form_validation->run() == TRUE) {
-				$data = $this->visual->array_from_post(array('title', 'slug', 'body', 'pubdate', 'filename'));
+				$data = $this->visual->array_from_post(array('title', 'slug', 'body', 'pubdate', 'filename', 'library'));
 				if ( $id ) {
 					$data['modified'] = date('Y-m-d H:i:s');
 					$this->visual->update($id, $data);

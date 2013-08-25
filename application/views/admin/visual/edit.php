@@ -21,6 +21,10 @@
 		<td><?php echo form_input('filename', set_value('filename', $visual->filename)); ?></td>
 	</tr>
 	<tr>
+		<td>Library:</td>
+		<td><?php echo form_input('library', set_value('library', $visual->library)); ?></td>
+	</tr>
+	<tr>
 		<td>Body:</td>
 		<td><?php echo form_textarea('body', set_value('body', $visual->body), 'class="tinymce"'); ?></td>
 	</tr>

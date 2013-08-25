@@ -11,7 +11,6 @@ class Visual extends Frontend_Controller
 		parent::__construct();
 		$this->data['recent_news'] = $this->visual->get_recent();
 		$this->data['title'] = 'Data Visualization';
-		
 	}
 
 	public function index($id, $slug){
@@ -19,6 +18,9 @@ class Visual extends Frontend_Controller
 		$this->data['visual'] = $this->visual->get($id);
 		
 		count($this->data['visual']) || show_404(uri_string());
+		$this->data['css'] = get_files($this->data['visual']->library,TRUE);
+		$this->data['js'] = get_files($this->data['visual']->library, FALSE);
+		
 		$this->data['title'] = 'Data Visualization - ' . $this->data['visual']->title;
 		$requested_slug = $this->uri->segment(3);
 		$set_slug = $this->data['visual']->slug;
